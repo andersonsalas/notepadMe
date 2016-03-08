@@ -1,0 +1,73 @@
+/*
+ * Estilos generales de la aplicación
+ *
+ * Helpers:
+ * ------------------------------------------------------------------------------------ */
+
+.vcenter{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.no-mt{
+    margin-top: 0 !important;
+}
+.no-mb{
+    margin-bottom: 0 !important;
+}
+.no-pt{
+    padding-top: 0 !important;
+}
+.no-pb{
+    padding-bottom: 0 !important;
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+body{
+    height: 100%;
+    display:block;
+    background: #F2F2F2;
+}
+.main-container{
+    border-color: #ECECEC;
+    border-radius: 2px;
+    margin-top: 40px;
+    background: #FBFBFB;
+    box-shadow: 0 0 3px rgba(0,0,0,0.15) !important;
+}
+.main-container > .panel-body{
+    padding: 0;
+}
+.col-derecha{
+    background: white;
+    border-left: solid 1px whitesmoke;
+}
+.col-izquierda{
+    padding-top: 15px;
+}
+.col-izquierda hr{
+    margin:15px 0;
+}
+.lista-notas li a{
+    padding: 15px;
+    display:block;
+    color: #A1A1A1 !important;
+    text-decoration: none !important;
+    border-left: solid 3px transparent;
+    transition: none !important;
+}
+.lista-notas li a:hover{
+    background: rgba(0,0,0,0.05);
+    color: #8A8A8A !important;
+}
+.lista-notas li a.activa{
+    border-left: solid 3px #2196F3;
+    background: rgba(0,0,0,0.025);
+    color: black !important;
+    font-weight: bold;
+}
+.opcionesNota .well{
+    border-top: solid 1px #EEEEEE;
+    background: #FBFBFB;
+}

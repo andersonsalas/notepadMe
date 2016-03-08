@@ -1,0 +1,41 @@
+/*
+ * Estilos externos del editor
+ **/
+ 
+#tituloNota{
+    padding: 32px 15px !important;
+    background: #FBFBFB;
+    box-shadow: inset 0 -1px 0 #F5F5F5;
+}
+
+.col-derecha{
+    padding:0px;
+}
+.mce-panel{
+    border: none;
+    background: #FBFBFB;
+    padding-bottom: 3px;
+}
+.mce-panel{
+    border: none;
+    background: #FBFBFB;
+    padding-bottom: 3px;
+}
+.mce-menu{
+    background: #fff;
+    box-shadow: 0px 6px 15px 0px rgba(0,0,0,0.15);
+    border: none;
+}
+.mce-menu-item-preview.mce-active {
+    border-left: 5px solid #2196F3;
+}
+.mce-menu-item:hover, .mce-menu-item.mce-selected, .mce-menu-item:focus {
+    background-color: #2196F3;
+}
+.mce-panel:last-of-type{
+    border: none;
+    padding-bottom: 0;
+}
+.mce-btn {
+    background: #FBFBFB;
+}

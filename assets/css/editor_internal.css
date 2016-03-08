@@ -1,0 +1,14 @@
+/*
+ * Estilos internos del editor
+ * (Dentro del iframe de TinyMCE)
+ **/
+
+.mce-content-body{
+    font-size: 14px;
+    margin:15px;
+}
+html{
+    display:block;
+    height: 99.8%;
+    border-top: solid 1px #EEEEEE;
+}

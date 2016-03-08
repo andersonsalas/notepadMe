@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine on
+
+    RewriteBase /notepadMe/
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d [OR]
+    RewriteCond $1 ^$
+
+    RewriteRule ^(.*)$ index.php/$1 [L]
+
+</IfModule>
