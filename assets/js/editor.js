@@ -25,6 +25,7 @@
  */
 
 function getEditorToolbarHeight(){
+
     var alturaToolbar = $('.mce-toolbar-grp').height();
     var alturaTitulo  = $('#tituloNotaContainer').height();
     if(alturaToolbar == null){
@@ -32,9 +33,11 @@ function getEditorToolbarHeight(){
         alturaToolbar = 32;
     }
     return alturaToolbar + alturaTitulo;
+
 }
 
 function getEditorContainerHeight(){
+
     return (
         $('.col-derecha').height()
         - $('.opcionesNota').height()
@@ -43,14 +46,21 @@ function getEditorContainerHeight(){
     );
 
 }
+
 function getEditorContent(){
+
     return tinymce.get('editor').getContent();
-}
-function getEditorTitle(){
-    return $('#tituloNota').val();
+
 }
 
-function saveNote(){
+function getEditorTitle(){
+
+    return $('#tituloNota').val();
+
+}
+
+function guardarNota(){
+
     var titulo     = getEditorTitle();
     var contenido  = getEditorContent();
     var saveUrl;
@@ -67,18 +77,56 @@ function saveNote(){
             'contenido': contenido
         }
     })
-    .done(function( data ) {
-        $('.lista-notas').prepend(data);
+    .done(function( result ) {
+        var resultado = JSON.parse(result);
+        modified_note = false;
+        if(current_note !== null){
+            $('.lista-notas [data-id='+id_nota+']').html(resultado.nuevo_titulo);
+        } else {
+            current_note = resultado.insert_id;
+            $('.lista-notas').prepend(resultado.html);
+            $('.lista-notas [data-id='+resultado.insert_id+']').addClass('activa');
+        }
     });
+
+}
+
+function borrarNota(){
+
+    if(confirm('¿Borrar nota?')){
+        if(current_note !== null){
+            var borrarUrl = 'borrar/'+current_note;
+            $.ajax({
+                method  : "GET",
+                url     : borrarUrl,
+            })
+            .done(function(result) {
+                var resultado = JSON.parse(result);
+                if(!resultado.error){
+                    $('.lista-notas [data-id='+current_note+']').remove();
+                    $('.col-derecha > *').remove();
+                }
+            });
+        }
+    }
+
 }
 
 function editorResize(){
+
     $('.editorContainer').width( $('#tituloNotaContainer').width() - 1);
     $('#editor_ifr').height( getEditorContainerHeight() );
+
 }
 
 function editorStart(){
-    $('.col-derecha').css('opacity',0);
+
+    $('.col-derecha').css({
+        width   : 0,
+    });
+    $('.editorContainer, .opcionesNota').css({
+        opacity : 0,
+    });
     tinymce.init(
         {
             selector    :'#editor',
@@ -88,16 +136,19 @@ function editorStart(){
             toolbar1    : 'insertfile undo redo paste | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
             content_css : 'assets/css/editor_internal.css',
             setup: function(ed) {
-                // Animacion de entrada:
                 ed.on('init', function() {
-                    setTimeout(function(){
+
+                    $('.col-derecha').animate({
+                            width: '75%',
+                    },150,function(){
                         editorResize();
-                    },300);
-                    setTimeout(function(){
-                        $('.col-derecha').animate({
+                        setTimeout(function(){
+                            $('.editorContainer, .opcionesNota').animate({
                                 opacity:1,
-                        },150);
-                    },400);
+                            },100);
+                        },100);
+                    });
+
                 });
                 modified_note = false;
                 ed.on('change keyup', function() {
@@ -106,20 +157,29 @@ function editorStart(){
             }
         }
     );
+
 }
 
 $(window).on('resize',function(){
+
     setTimeout(function(){
         editorResize();
-    },200)
+    },200);
+
 });
 
 $(document).ready(function(){
+
     editorStart();
     $('#editorGuardar').on('click',function(e){
         e.preventDefault();
-        saveNote();
+        guardarNota();
     });
+    $('#editorBorrar').on('click',function(e){
+        e.preventDefault();
+        borrarNota();
+    });
+
 });
 
 

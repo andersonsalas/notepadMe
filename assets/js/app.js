@@ -28,15 +28,30 @@ var current_note  = null;
 var modified_note = null;
 
 function appResponsiveInterface(){
+    var col_izquierda_height = 0;
+
+    $('.col-izquierda > *').each(function() {
+        if($(this).attr('class') != 'lista-notas-container'){
+            col_izquierda_height += ($(this).outerHeight() + $(this).innerHeight() );
+        }
+    });
+
     $('.main-container').height(
         $(window).height() - 90
     );
     $('.main-container .col-derecha').height(
         $('.main-container').height()
     );
+    $('.lista-notas-container').height(
+        $('.main-container').height()
+        - col_izquierda_height
+        - 30
+    );
+
 }
 
 function loadEditor(id_nota){
+
     id_nota = typeof id_nota != 'undefined' ? id_nota : false;
 
     var url = '';
@@ -55,6 +70,8 @@ function loadEditor(id_nota){
     }
 
     if(makeLoad){
+        $('.col-derecha > *').remove();
+        $('div[id ^= mceu_]').remove();
         if(id_nota){
             current_note = id_nota;
             url = '/'+id_nota;
@@ -67,9 +84,11 @@ function loadEditor(id_nota){
         }
         $('.col-derecha').load('editor'+url);
     }
+
 }
 
 function loadNoteList(){
+
     $.ajax({
         method  : "POST",
         url     : "lista",
@@ -77,9 +96,11 @@ function loadNoteList(){
     .done(function( data ) {
         $('.lista-notas').prepend(data);
     });
+
 }
 
 $(document).ready(function(){
+
     appResponsiveInterface();
     loadNoteList();
 
@@ -95,5 +116,7 @@ $(document).ready(function(){
 });
 
 $(window).on('resize',function(){
+
     appResponsiveInterface();
+    
 })

@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?= (isset($tituloPagina) ? $tituloPagina.' - ' : '').'notepadMe!';?></title>
-        <meta name="author" content="{autorPagina}">
-        <meta name="description" content="{descripcionPagina}">
+        <meta name="author" content="Anderson Salas">
+        <meta name="description" content="notepadMe!">
         <link rel="shortcut icon" type="image/png" href="<?= img_dir('favicon.png');?>" />
 
         <?php

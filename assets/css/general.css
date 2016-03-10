@@ -50,11 +50,14 @@ body{
     margin:15px 0;
 }
 .lista-notas li a{
-    padding: 15px;
+    padding: 8px 15px;
     display:block;
-    color: #A1A1A1 !important;
+    color: #8C8C8C !important;
     text-decoration: none !important;
     border-left: solid 3px transparent;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
     transition: none !important;
 }
 .lista-notas li a:hover{
@@ -71,3 +74,42 @@ body{
     border-top: solid 1px #EEEEEE;
     background: #FBFBFB;
 }
+.lista-notas-container{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: #D4D4D4;
+    border: 0px none #ffffff;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #BFBFBF;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #616161;
+}
+::-webkit-scrollbar-track {
+    background: #F0F0F0;
+    border: 0px none #ffffff;
+}
+::-webkit-scrollbar-track:hover {
+    background: #F0F0F0;
+}
+::-webkit-scrollbar-track:active {
+    background: #E3E3E3;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+

@@ -19,6 +19,7 @@
 <div class="row opcionesNota">
     <div class="col-md-12">
         <div class="well no-mb text-right">
+            <a href="#" id="editorBorrar" class="btn btn-default">Borrar</a>&nbsp;
             <a href="#" id="editorGuardar" class="btn btn-primary">Guardar</a>
         </div>
     </div>
