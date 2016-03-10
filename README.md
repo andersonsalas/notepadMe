@@ -11,10 +11,15 @@ Se trata de un script aún muy verde, probablemente no funcione como se espera q
 
 ### Instalación:
 
-1. Descomprimir en el servidor
+1. Descomprimir en el servidor. Recomendado en el directorio raíz: Ej.: **/notepadMe/**
 2. Modificar el archivo **notepad/config/database.php** con los parámetros de conexión correctos.
 3. Ejecutar en su motor de base de datos (phpMyAdmin/MySQL Workbench) el script **instalar.sql**
 4. ¡Listo!
+
+**Nota:**
+
+Si vas a guardar en un directorio diferente a /notepadMe/ en el servidor, edita el archivo .htaccess y cambia el parámetro **rewrite_base** por la ubicación donde hayas descomprimido el script. De igual forma edita el archivo **notepad/config/config.php** y cambia la clave **$config['base_url']** por la url deseada.
+
 
 ### ¿Quieres colaborar?
 
@@ -28,10 +33,6 @@ Se trata de un script aún muy verde, probablemente no funcione como se espera q
 
 Recuerda que puedes consultar la documentacion de CodeIgniter [aquí](http://codeigniter.com/).
 
-### Screenshoots
-
-![notepadMe_001](screenshoots/notepadMe_001.png)
-![notepadMe_001](screenshoots/notepadMe_002.png)
 
 ### Roadmap
 
@@ -41,3 +42,8 @@ Recuerda que puedes consultar la documentacion de CodeIgniter [aquí](http://cod
 * Mejoras varias en la interfaz
 * Opción para importar/exportar notas
 * Soporte para el formato Markdown (REALMENTE QUIERO HACER ESTO!)
+
+### Screenshoots
+
+![notepadMe_001](screenshoots/notepadMe_001.png)
+![notepadMe_001](screenshoots/notepadMe_002.png)
