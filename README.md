@@ -26,7 +26,7 @@ Se trata de un script aún muy verde, probablemente no funcione como se espera q
 
 ¿Dudas?, puedes escribirme a contacto@andersonsalas.com.ve
 
-Recuerda que puedes consultar la documentacion de CodeIgniter [aquí](http://example.net/).
+Recuerda que puedes consultar la documentacion de CodeIgniter [aquí](http://codeigniter.com/).
 
 ### Screenshoots
 
